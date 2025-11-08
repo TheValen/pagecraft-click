@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PageCraft — Качественные одностраничные сайты под ключ за 2000 грн</title>
+    <meta name="description" content="Создам доступный одностраничный сайт с бесплатным хостингом, SEO и мобильной оптимизацией. Цена 2000 грн — идеально для бизнеса.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4CAF50; /* Зелёный для доступности и роста */
+            --secondary-color: #2196F3;
+            --accent-color: #FF9800;
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+            --white: #fff;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+            --border-radius: 12px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; line-height: 1.6; color: var(--text-color); background: var(--bg-color); }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        header { background: var(--white); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 100; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+        .logo { font-size: 1.8rem; font-weight: bold; color: var(--primary-color); text-decoration: none; }
+        .lang-switch { display: flex; gap: 8px; }
+        .lang-btn { background: none; border: 1px solid var(--primary-color); color: var(--primary-color); padding: 0.5rem 0.8rem; border-radius: var(--border-radius); cursor: pointer; transition: all 0.3s; font-size: 0.9rem; }
+        .lang-btn.active, .lang-btn:hover { background: var(--primary-color); color: var(--white); }
+        section { padding: 4rem 0; }
+        .hero { background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: var(--white); text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat; opacity: 0.3; }
+        .hero-content { position: relative; z-index: 1; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; animation: fadeInUp 1s ease; }
+        .hero p { font-size: 1.3rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .cta { background: var(--white); color: var(--primary-color); padding: 1rem 2.5rem; border-radius: 50px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; box-shadow: var(--shadow); }
+        .cta:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+        .features { background: var(--white); }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .feature { text-align: center; padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow); transition: transform 0.3s; }
+        .feature:hover { transform: translateY(-5px); }
+        .feature i { font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem; }
+        .examples { background: var(--bg-color); }
+        .examples-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .example { background: var(--white); border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--shadow); transition: transform 0.3s; }
+        .example:hover { transform: scale(1.02); }
+        .example img { width: 100%; height: 200px; object-fit: cover; }
+        .example-content { padding: 1.5rem; }
+        .faq { background: var(--white); }
+        .faq-item { margin-bottom: 1.5rem; border: 1px solid #eee; border-radius: var(--border-radius); overflow: hidden; }
+        .faq-question { background: var(--primary-color); color: var(--white); padding: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { padding: 1rem; display: none; }
+        .faq-answer.active { display: block; }
+        form { background: var(--white); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow); max-width: 500px; margin: 2rem auto; }
+        input, textarea { width: 100%; padding: 1rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 6px; }
+        button { background: var(--primary-color); color: var(--white); border: none; padding: 1rem; border-radius: 6px; cursor: pointer; width: 100%; font-size: 1rem; }
+        footer { background: var(--primary-color); color: var(--white); text-align: center; padding: 2rem 0; }
+        .hidden { display: none; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .lang-switch { flex-wrap: wrap; } }
+        /* Цены по языку */
+        .price-uah { display: block; }
+        .price-usd { display: none; }
+        body[data-lang="uk"], body[data-lang="ru"] .price-usd { display: none; }
+        body[data-lang="uk"], body[data-lang="ru"] .price-uah { display: block; }
+        body[data-lang="en"], body[data-lang="es"] .price-uah { display: none; }
+        body[data-lang="en"], body[data-lang="es"] .price-usd { display: block; }
+        /* Крипта осторожно */
+        .crypto { font-size: 0.9rem; color: #666; margin-top: 0.5rem; }
+        body[data-lang="uk"], body[data-lang="ru"] .crypto { display: none; }
+    </style>
+</head>
+<body data-lang="ru">
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">PageCraft</a>
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="uk">UA</button>
+                <button class="lang-btn" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="es">ES</button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content container">
+            <h1 id="hero-title">Качественные одностраничные сайты под ключ — доступно и просто</h1>
+            <p id="hero-desc">Создам для вас современный лендинг, который работает на всех устройствах. С минимальным SEO для поиска и бесплатным хостингом — экономьте до 200 грн в месяц на платных услугах. Идеально для старта бизнеса!</p>
+            <a href="#contact" class="cta" id="cta-btn">Заказать за <span class="price price-uah">2000 грн</span><span class="price price-usd">50$</span></a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 id="features-title">Что входит в услугу</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Оптимизация под мобильные</h3>
+                    <p>Сайт выглядит идеально на телефонах и планшетах — ваши клиенты не уйдут.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-search"></i>
+                    <h3>Минимальное SEO</h3>
+                    <p>Настрою ключевые слова и мета-теги, чтобы вас находили в Google.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-server"></i>
+                    <h3>Бесплатный хостинг</h3>
+                    <p>Никаких ежемесячных платежей — платные хостинги стоят от 200 грн в месяц, а у нас всё бесплатно на старте.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-key"></i>
+                    <h3>Под ключ</h3>
+                    <p>От идеи до запуска: текст, фото, дизайн — готовый сайт за 1-2 дня.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="examples">
+        <div class="container">
+            <h2 id="examples-title">Примеры работ</h2>
+            <p id="examples-desc">Вот минимум, который вы получите — простой и эффективный лендинг. Для более сложных проектов (многостраничные или с дополнениями) обсудим индивидуально по доступной цене.</p>
+            <div class="examples-grid">
+                <div class="example">
+                    <a href="https://rifrush.com" target="_blank"><img src="https://via.placeholder.com/300x200?text=RifRush" alt="Пример базового сайта"></a>
+                    <div class="example-content">
+                        <h3 id="ex1-title">Базовый лендинг (минимум)</h3>
+                        <p id="ex1-desc">Простая одностраничка для вашего бизнеса — всё необходимое без лишнего.</p>
+                    </div>
+                </div>
+                <div class="example">
+                    <a href="https://pitbikedrive.club" target="_blank"><img src="https://via.placeholder.com/300x200?text=PitbikeDrive" alt="Пример расширенного сайта"></a>
+                    <div class="example-content">
+                        <h3 id="ex2-title">Расширенный вариант</h3>
+                        <p id="ex2-desc">С доп. страницами и фишками — обсудим, если нужно больше, за разумную доплату.</p>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="/services" class="cta" id="services-link">Дополнительные услуги</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <h2 id="faq-title">FAQ</h2>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span id="faq1-q">Сколько времени занимает создание?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p id="faq1-a">Обычно 1-2 дня — быстро и без задержек.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span id="faq2-q">Что если нужно доработки?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p id="faq2-a">Один круг правок бесплатно. Дальше — по договорённости, доступно.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span id="faq3-q">Как оплатить?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p id="faq3-a">50% предоплата, 50% после. Любым способом: карты, переводы. <span class="crypto">Для удобства принимаю криптовалюту (BTC, ETH, USDT).</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 id="contact-title">Свяжитесь со мной</h2>
+            <p id="contact-desc">Расскажите о вашем проекте — отвечу в течение часа.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem;">
+                <a href="https://t.me/craftpage" class="cta" style="background: #0088cc; color: white; text-align: center; padding: 1rem;">Написать в Telegram</a>
+            </div>
+            <form action="https://submit-form.com/NRH8Ke2kg" method="POST">
+                <input type="text" name="name" placeholder="Ваше имя" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="message" placeholder="Расскажите о сайте..." rows="4" required></textarea>
+                <button type="submit" id="form-btn">Отправить</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p id="footer-text">&copy; 2025 PageCraft. Доступные сайты для вашего успеха.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Автоопределение языка
+        const userLang = (navigator.language || navigator.userLanguage).substring(0, 2);
+        const langMap = { 'uk': 'uk', 'ru': 'ru', 'en': 'en', 'es': 'es' };
+        let detectedLang = userLang in langMap ? userLang : 'ru';
+
+        const translations = {
+            uk: {
+                heroTitle: 'Якісні односторінкові сайти під ключ — доступно і просто',
+                heroDesc: 'Створю для вас сучасний лендінг, який працює на всіх пристроях. З мінімальним SEO для пошуку та безкоштовним хостингом — економте до 200 грн на місяць на платних послугах. Ідеально для старту бізнесу!',
+                ctaBtn: 'Замовити за 2000 грн',
+                featuresTitle: 'Що входить в послугу',
+                examplesTitle: 'Приклади робіт',
+                examplesDesc: 'Ось мінімум, який ви отримаєте — простий і ефективний лендінг. Для більш складних проектів (багатосторінкові чи з доповненнями) обговоримо індивідуально за доступною ціною.',
+                ex1Title: 'Базовий лендінг (мінімум)',
+                ex1Desc: 'Проста односторінка для вашого бізнесу — все необхідне без зайвого.',
+                ex2Title: 'Розширений варіант',
+                ex2Desc: 'З доп. сторінками та фішками — обговоримо, якщо потрібно більше, за розумну доплату.',
+                servicesLink: 'Додаткові послуги',
+                faqTitle: 'FAQ',
+                faq1q: 'Скільки часу займає створення?',
+                faq1a: 'Зазвичай 1-2 дні — швидко і без затримок.',
+                faq2q: 'Що якщо потрібно доопрацювання?',
+                faq2a: 'Один круг правок безкоштовно. Далі — за домовленістю, доступно.',
+                faq3q: 'Як оплатити?',
+                faq3a: '50% передоплата, 50% після. Будь-яким способом: карти, перекази.',
+                contactTitle: 'Зв\'яжіться зі мною',
+                contactDesc: 'Розкажіть про ваш проект — відповім протягом години.',
+                formBtn: 'Відправити',
+                footerText: '© 2025 PageCraft. Доступні сайти для вашого успіху.'
+            },
+            ru: {
+                heroTitle: 'Качественные одностраничные сайты под ключ — доступно и просто',
+                heroDesc: 'Создам для вас современный лендинг, который работает на всех устройствах. С минимальным SEO для поиска и бесплатным хостингом — экономьте до 200 грн в месяц на платных услугах. Идеально для старта бизнеса!',
+                ctaBtn: 'Заказать за 2000 грн',
+                featuresTitle: 'Что входит в услугу',
+                examplesTitle: 'Примеры работ',
+                examplesDesc: 'Вот минимум, который вы получите — простой и эффективный лендинг. Для более сложных проектов (многостраничные или с дополнениями) обсудим индивидуально по доступной цене.',
+                ex1Title: 'Базовый лендинг (минимум)',
+                ex1Desc: 'Простая одностраничка для вашего бизнеса — все необходимое без лишнего.',
+                ex2Title: 'Расширенный вариант',
+                ex2Desc: 'С доп. страницами и фишками — обсудим, если нужно больше, за разумную доплату.',
+                servicesLink: 'Дополнительные услуги',
+                faqTitle: 'FAQ',
+                faq1q: 'Сколько времени занимает создание?',
+                faq1a: 'Обычно 1-2 дня — быстро и без задержек.',
+                faq2q: 'Что если нужно доработки?',
+                faq2a: 'Один круг правок бесплатно. Дальше — по договорённости, доступно.',
+                faq3q: 'Как оплатить?',
+                faq3a: '50% предоплата, 50% после. Любым способом: карты, переводы.',
+                contactTitle: 'Свяжитесь со мной',
+                contactDesc: 'Расскажите о вашем проекте — отвечу в течение часа.',
+                formBtn: 'Отправить',
+                footerText: '© 2025 PageCraft. Доступные сайты для вашего успеха.'
+            },
+            en: {
+                heroTitle: 'Quality One-Page Websites Under Key — Affordable and Simple',
+                heroDesc: 'I\'ll create a modern landing page that works on all devices. With basic SEO for search and free hosting — save up to $5/month on paid services. Perfect for business startup!',
+                ctaBtn: 'Order for $50',
+                featuresTitle: 'What\'s Included',
+                examplesTitle: 'Work Examples',
+                examplesDesc: 'Here\'s the minimum you\'ll get — a simple and effective landing. For more complex projects (multi-page or add-ons) we\'ll discuss at an affordable price.',
+                ex1Title: 'Basic Landing (Minimum)',
+                ex1Desc: 'A simple one-pager for your business — everything essential without extras.',
+                ex2Title: 'Extended Version',
+                ex2Desc: 'With extra pages and features — let\'s discuss if you need more, at a reasonable add-on.',
+                servicesLink: 'Additional Services',
+                faqTitle: 'FAQ',
+                faq1q: 'How long does creation take?',
+                faq1a: 'Usually 1-2 days — fast and no delays.',
+                faq2q: 'What if tweaks are needed?',
+                faq2a: 'One round of revisions free. Further — by agreement, affordable.',
+                faq3q: 'How to pay?',
+                faq3a: '50% prepay, 50% after. Any method: cards, transfers. For convenience, I accept cryptocurrency (BTC, ETH, USDT).',
+                contactTitle: 'Get in Touch',
+                contactDesc: 'Tell me about your project — I\'ll reply within an hour.',
+                formBtn: 'Send',
+                footerText: '© 2025 PageCraft. Affordable sites for your success.'
+            },
+            es: {
+                heroTitle: 'Sitios Web de Una Página de Calidad Bajo Llave — Asequibles y Simples',
+                heroDesc: 'Crearé una landing page moderna que funcione en todos los dispositivos. Con SEO básico para búsquedas y hosting gratuito — ahorra hasta $5/mes en servicios pagos. ¡Perfecto para empezar un negocio!',
+                ctaBtn: 'Pedir por $50',
+                featuresTitle: 'Qué Incluye',
+                examplesTitle: 'Ejemplos de Trabajos',
+                examplesDesc: 'Aquí está el mínimo que obtendrás — un landing simple y efectivo. Para proyectos más complejos (multi-página o add-ons) discutiremos a un precio asequible.',
+                ex1Title: 'Landing Básico (Mínimo)',
+                ex1Desc: 'Una página simple para tu negocio — todo lo esencial sin extras.',
+                ex2Title: 'Versión Extendida',
+                ex2Desc: 'Con páginas extra y funciones — hablemos si necesitas más, a un costo razonable.',
+                servicesLink: 'Servicios Adicionales',
+                faqTitle: 'FAQ',
+                faq1q: '¿Cuánto tiempo toma la creación?',
+                faq1a: 'Normalmente 1-2 días — rápido y sin retrasos.',
+                faq2q: '¿Qué pasa si se necesitan ajustes?',
+                faq2a: 'Una ronda de revisiones gratis. Más — por acuerdo, asequible.',
+                faq3q: '¿Cómo pagar?',
+                faq3a: '50% prepago, 50% después. Cualquier método: tarjetas, transferencias. Para comodidad, acepto criptomoneda (BTC, ETH, USDT).',
+                contactTitle: 'Ponte en Contacto',
+                contactDesc: 'Cuéntame sobre tu proyecto — responderé en una hora.',
+                formBtn: 'Enviar',
+                footerText: '© 2025 PageCraft. Sitios asequibles para tu éxito.'
+            }
+        };
+
+        function changeLang(lang) {
+            document.body.setAttribute('data-lang', lang);
+            const t = translations[lang];
+            document.getElementById('hero-title').textContent = t.heroTitle;
+            document.getElementById('hero-desc').textContent = t.heroDesc;
+            document.getElementById('cta-btn').innerHTML = t.ctaBtn;
+            document.getElementById('features-title').textContent = t.featuresTitle;
+            document.getElementById('examples-title').textContent = t.examplesTitle;
+            document.getElementById('examples-desc').textContent = t.examplesDesc;
+            document.getElementById('ex1-title').textContent = t.ex1Title;
+            document.getElementById('ex1-desc').textContent = t.ex1Desc;
+            document.getElementById('ex2-title').textContent = t.ex2Title;
+            document.getElementById('ex2-desc').textContent = t.ex2Desc;
+            document.getElementById('services-link').textContent = t.servicesLink;
+            document.getElementById('faq-title').textContent = t.faqTitle;
+            document.getElementById('faq1-q').textContent = t.faq1q;
+            document.getElementById('faq1-a').textContent = t.faq1a;
+            document.getElementById('faq2-q').textContent = t.faq2q;
+            document.getElementById('faq2-a').textContent = t.faq2a;
+            document.getElementById('faq3-q').textContent = t.faq3q;
+            document.getElementById('faq3-a').innerHTML = t.faq3a;
+            document.getElementById('contact-title').textContent = t.contactTitle;
+            document.getElementById('contact-desc').textContent = t.contactDesc;
+            document.getElementById('form-btn').textContent = t.formBtn;
+            document.getElementById('footer-text').textContent = t.footerText;
+
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[data-lang="${lang}"]`).classList.add('active');
+        }
+
+        // Инициализация
+        changeLang(detectedLang);
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => changeLang(btn.dataset.lang)));
+
+        // FAQ toggle
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            answer.classList.toggle('active');
+            const icon = element.querySelector('i');
+            icon.style.transform = answer.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        // Smooth scroll
+        document.querySelector('.cta').addEventListener('click', e => {
+            e.preventDefault();
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
