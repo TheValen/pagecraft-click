@@ -189,8 +189,8 @@
                 <a href="https://t.me/craftpage" class="cta" style="background: #0088cc; color: white; text-align: center; padding: 1rem;" id="telegram-btn">Написать в Telegram</a>
             </div>
             <form action="https://submit-form.com/NRH8Ke2kg" method="POST">
-                <input type="text" name="name" placeholder="Ваше имя" required>
-                <input type="email" name="email" placeholder="Email" required>
+                <input id="name-input" type="text" name="name" placeholder="Ваше имя" required>
+                <input id="email-input" type="email" name="email" placeholder="Email" required>
                 <textarea id="message-input" name="message" placeholder="Какие услуги интересуют?..." rows="4" required></textarea>
                 <button type="submit" id="form-btn">Отправить</button>
             </form>
@@ -204,10 +204,10 @@
     </footer>
 
     <script>
-        // Автоопределение языка
+        // Автоопределение языка с сохранением
         const userLang = (navigator.language || navigator.userLanguage).substring(0, 2);
         const langMap = { 'uk': 'uk', 'ru': 'ru', 'en': 'en', 'es': 'es' };
-        let detectedLang = userLang in langMap ? userLang : 'ru';
+        let detectedLang = localStorage.getItem('selectedLang') || (userLang in langMap ? userLang : 'ru'); // Берет из storage или дефолт
 
         const translations = {
             "uk": {
@@ -250,6 +250,8 @@
                 "contactTitle": "Готові розширити сайт?",
                 "contactDesc": "Напишіть — розрахуємо вартість за 10 хвилин.",
                 "telegramBtn": "Написати в Telegram",
+                "namePlaceholder": "Ваше ім'я",
+                "emailPlaceholder": "Email",
                 "messagePlaceholder": "Які послуги цікавлять?...",
                 "formBtn": "Відправити",
                 "footerText": "© 2025 PageCraft. Доступні сайти для вашого успіху."
@@ -294,6 +296,8 @@
                 "contactTitle": "Готовы расширить сайт?",
                 "contactDesc": "Напишите — рассчитаем стоимость за 10 минут.",
                 "telegramBtn": "Написать в Telegram",
+                "namePlaceholder": "Ваше имя",
+                "emailPlaceholder": "Email",
                 "messagePlaceholder": "Какие услуги интересуют?...",
                 "formBtn": "Отправить",
                 "footerText": "© 2025 PageCraft. Доступные сайты для вашего успеха."
@@ -338,6 +342,8 @@
                 "contactTitle": "Ready to Expand Your Site?",
                 "contactDesc": "Write — we'll calculate cost in 10 minutes.",
                 "telegramBtn": "Message in Telegram",
+                "namePlaceholder": "Your Name",
+                "emailPlaceholder": "Email",
                 "messagePlaceholder": "What services are you interested in?...",
                 "formBtn": "Send",
                 "footerText": "© 2025 PageCraft. Affordable sites for your success."
@@ -382,6 +388,8 @@
                 "contactTitle": "¿Listo para Expandir Tu Sitio?",
                 "contactDesc": "Escribe — calcularemos costo en 10 minutos.",
                 "telegramBtn": "Escribir en Telegram",
+                "namePlaceholder": "Tu Nombre",
+                "emailPlaceholder": "Email",
                 "messagePlaceholder": "¿Qué servicios te interesan?...",
                 "formBtn": "Enviar",
                 "footerText": "© 2025 PageCraft. Sitios asequibles para tu éxito."
@@ -391,6 +399,7 @@
         function changeLang(lang) {
             try {
                 console.log("Switching to lang:", lang);
+                localStorage.setItem('selectedLang', lang); // Сохраняем выбор
                 document.body.setAttribute('data-lang', lang);
                 const t = translations[lang];
                 if (!t) {
@@ -436,7 +445,9 @@
                 document.getElementById('contact-title').textContent = t.contactTitle;
                 document.getElementById('contact-desc').textContent = t.contactDesc;
                 document.getElementById('telegram-btn').textContent = t.telegramBtn;
-                document.querySelector('textarea[name="message"]').placeholder = t.messagePlaceholder;
+                document.getElementById('name-input').placeholder = t.namePlaceholder;
+                document.getElementById('email-input').placeholder = t.emailPlaceholder;
+                document.getElementById('message-input').placeholder = t.messagePlaceholder;
                 document.getElementById('form-btn').textContent = t.formBtn;
                 document.getElementById('footer-text').textContent = t.footerText;
 
