@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PageCraft — Дополнительные услуги для сайтов</title>
+    <meta name="description" content="Дополнительные услуги: добавьте страницы, SEO-аудит, многоязычность и правки к вашему сайту. Доступные цены от 5$ — расширьте проект без переплат.">
+    <meta name="keywords" content="дополнительные услуги сайтов, добавление страниц, SEO-аудит, многоязычность, правки сайта, веб-разработка">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://pagecraft.com/services">
+    <!-- Open Graph и Twitter Card аналогично index.html -->
+    <meta property="og:title" content="PageCraft — Дополнительные услуги для сайтов">
+    <meta property="og:description" content="Дополнительные услуги: добавьте страницы, SEO-аудит, многоязычность и правки к вашему сайту. Доступные цены от 5$ — расширьте проект без переплат.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pagecraft.com/services">
+    <meta property="og:image" content="https://pagecraft.com/og-image-services.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PageCraft — Дополнительные услуги для сайтов">
+    <meta name="twitter:description" content="Дополнительные услуги: добавьте страницы, SEO-аудит, многоязычность и правки к вашему сайту. Доступные цены от 5$ — расширьте проект без переплат.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Те же стили, что в index.html, для consistency */
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #2196F3;
+            --accent-color: #FF9800;
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+            --white: #fff;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+            --border-radius: 12px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; line-height: 1.6; color: var(--text-color); background: var(--bg-color); }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        header { background: var(--white); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 100; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+        .logo { font-size: 1.8rem; font-weight: bold; color: var(--primary-color); text-decoration: none; }
+        .nav-links { display: flex; gap: 1rem; }
+        .nav-link { color: var(--text-color); text-decoration: none; transition: color 0.3s; }
+        .nav-link:hover { color: var(--primary-color); }
+        .lang-switch { display: flex; gap: 8px; }
+        .lang-btn { background: none; border: 1px solid var(--primary-color); color: var(--primary-color); padding: 0.5rem 0.8rem; border-radius: var(--border-radius); cursor: pointer; transition: all 0.3s; font-size: 0.9rem; }
+        .lang-btn.active, .lang-btn:hover { background: var(--primary-color); color: var(--white); }
+        section { padding: 4rem 0; }
+        .hero { background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: var(--white); text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat; opacity: 0.3; }
+        .hero-content { position: relative; z-index: 1; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; animation: fadeInUp 1s ease; }
+        .hero p { font-size: 1.3rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .cta { background: var(--white); color: var(--primary-color); padding: 1rem 2.5rem; border-radius: 50px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; box-shadow: var(--shadow); }
+        .cta:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+        .services-table { background: var(--white); margin: 2rem 0; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--shadow); }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 1.5rem; text-align: left; border-bottom: 1px solid #eee; }
+        th { background: var(--primary-color); color: var(--white); }
+        .price { font-weight: bold; color: var(--accent-color); }
+        .faq { background: var(--bg-color); }
+        .faq-item { margin-bottom: 1.5rem; border: 1px solid #eee; border-radius: var(--border-radius); overflow: hidden; }
+        .faq-question { background: var(--secondary-color); color: var(--white); padding: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { padding: 1rem; display: none; }
+        .faq-answer.active { display: block; }
+        form { background: var(--white); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow); max-width: 500px; margin: 2rem auto; }
+        input, textarea { width: 100%; padding: 1rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 6px; }
+        button { background: var(--primary-color); color: var(--white); border: none; padding: 1rem; border-radius: 6px; cursor: pointer; width: 100%; font-size: 1rem; }
+        footer { background: var(--primary-color); color: var(--white); text-align: center; padding: 2rem 0; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .nav-links { display: none; } .lang-switch { flex-wrap: wrap; } table { font-size: 0.9rem; } }
+        /* Цены: грн только для UA, $ для RU/EN/ES */
+        .price-uah { display: none; }
+        .price-usd { display: block; }
+        body[data-lang="uk"] .price-uah { display: block; }
+        body[data-lang="uk"] .price-usd { display: none; }
+    </style>
+</head>
+<body data-lang="ru">
+    <header>
+        <nav class="container">
+            <a href="/" class="logo">PageCraft</a>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Главная</a>
+            </div>
+            <div class="lang-switch">
+                <button class="lang-btn" data-lang="uk">UA</button>
+                <button class="lang-btn active" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="es">ES</button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content container">
+            <h1 id="hero-title">Дополнительные услуги — расширьте свой сайт</h1>
+            <p id="hero-desc">Если базовый лендинг — это старт, то эти опции добавят функционала без переплат. Выберите, что нужно, и обсудим цену индивидуально. Всё на коде, с гарантией качества.</p>
+            <a href="#contact" class="cta" id="cta-btn">Обсудить проект</a>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <h2 id="services-title">Наши дополнительные услуги</h2>
+            <div class="services-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th id="th-service">Услуга</th>
+                            <th id="th-includes">Что входит</th>
+                            <th id="th-price">Цена</th>
+                            <th id="th-term">Срок</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="td1-service"><i class="fas fa-plus"></i> Дополнительная страница</td>
+                            <td id="td1-desc">Новая страница (о нас, контакты, блог) с дизайном и SEO.</td>
+                            <td id="td1-price" class="price"><span class="price-uah">500 грн</span><span class="price-usd">15$</span></td>
+                            <td id="td1-term">1 день</td>
+                        </tr>
+                        <tr>
+                            <td id="td2-service"><i class="fas fa-globe"></i> Многоязычность</td>
+                            <td id="td2-desc">Добавим 1-2 языка (EN, ES и т.д.) с переключателем.</td>
+                            <td id="td2-price" class="price"><span class="price-uah">1000 грн</span><span class="price-usd">25$</span></td>
+                            <td id="td2-term">1-2 дня</td>
+                        </tr>
+                        <tr>
+                            <td id="td3-service"><i class="fas fa-chart-line"></i> SEO-аудит</td>
+                            <td id="td3-desc">Проверка и улучшение (ключи, скорость, мета).</td>
+                            <td id="td3-price" class="price"><span class="price-uah">300 грн</span><span class="price-usd">8$</span></td>
+                            <td id="td3-term">1 день</td>
+                        </tr>
+                        <tr>
+                            <td id="td4-service"><i class="fas fa-edit"></i> Разовые правки</td>
+                            <td id="td4-desc">Мелкие изменения (текст, фото, блок) после запуска.</td>
+                            <td id="td4-price" class="price"><span class="price-uah">200 грн</span><span class="price-usd">5$</span></td>
+                            <td id="td4-term">В день</td>
+                        </tr>
+                        <tr>
+                            <td id="td5-service"><i class="fas fa-cog"></i> Абонемент на правки</td>
+                            <td id="td5-desc">5 правок в месяц + приоритетная поддержка.</td>
+                            <td id="td5-price" class="price"><span class="price-uah">800 грн</span><span class="price-usd">20$</span></td>
+                            <td id="td5-term">Месяц</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="text-align: center; margin-top: 2rem; font-style: italic;" id="services-note">* Цены индивидуальны, без НДС. Для сложных проектов — рассчитаем вместе. Вернёмся к базовому сайту за <a href="/" style="color: var(--secondary-color);">50$</a>.</p>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <h2 id="faq-title">Часто задаваемые вопросы</h2>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span id="faq1-q">Как выбрать услугу?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p id="faq1-a">Расскажите о проекте — подберём оптимальный набор. Нет обязательств, только то, что нужно.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span id="faq2-q">Можно ли комбинировать?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p id="faq2-a">Да! Например, +страница +SEO за скидку. Обсудим в чате.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span id="faq3-q">Что с оплатой допов?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p id="faq3-a">50% предоплата, остаток после. Любым способом, включая крипту через биржу.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 id="contact-title">Готовы расширить сайт?</h2>
+            <p id="contact-desc">Напишите — рассчитаем стоимость за 10 минут.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem;">
+                <a href="https://t.me/craftpage" class="cta" style="background: #0088cc; color: white; text-align: center; padding: 1rem;" id="telegram-btn">Написать в Telegram</a>
+            </div>
+            <form action="https://submit-form.com/NRH8Ke2kg" method="POST">
+                <input type="text" name="name" placeholder="Ваше имя" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea id="message-input" name="message" placeholder="Какие услуги интересуют?..." rows="4" required></textarea>
+                <button type="submit" id="form-btn">Отправить</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p id="footer-text">&copy; 2025 PageCraft. Доступные сайты для вашего успеха.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Автоопределение языка
+        const userLang = (navigator.language || navigator.userLanguage).substring(0, 2);
+        const langMap = { 'uk': 'uk', 'ru': 'ru', 'en': 'en', 'es': 'es' };
+        let detectedLang = userLang in langMap ? userLang : 'ru';
+
+        const translations = {
+            "uk": {
+                "heroTitle": "Додаткові послуги — розширте свій сайт",
+                "heroDesc": "Якщо базовий лендінг — це старт, то ці опції додадуть функціоналу без переплат. Оберіть, що потрібно, і обговоримо ціну індивідуально. Все на коді, з гарантією якості.",
+                "ctaBtn": "Обговорити проект",
+                "servicesTitle": "Наші додаткові послуги",
+                "thService": "Послуга",
+                "thIncludes": "Що входить",
+                "thPrice": "Ціна",
+                "thTerm": "Термін",
+                "td1Service": "<i class='fas fa-plus'></i> Додаткова сторінка",
+                "td1Desc": "Нова сторінка (про нас, контакти, блог) з дизайном та SEO.",
+                "td1Price": "<span class='price-uah'>500 грн</span><span class='price-usd'>15$</span>",
+                "td1Term": "1 день",
+                "td2Service": "<i class='fas fa-globe'></i> Багатомовність",
+                "td2Desc": "Додамо 1-2 мови (EN, ES тощо) з перемикачем.",
+                "td2Price": "<span class='price-uah'>1000 грн</span><span class='price-usd'>25$</span>",
+                "td2Term": "1-2 дні",
+                "td3Service": "<i class='fas fa-chart-line'></i> SEO-аудит",
+                "td3Desc": "Перевірка та покращення (ключі, швидкість, мета).",
+                "td3Price": "<span class='price-uah'>300 грн</span><span class='price-usd'>8$</span>",
+                "td3Term": "1 день",
+                "td4Service": "<i class='fas fa-edit'></i> Разові правки",
+                "td4Desc": "Дрібні зміни (текст, фото, блок) після запуску.",
+                "td4Price": "<span class='price-uah'>200 грн</span><span class='price-usd'>5$</span>",
+                "td4Term": "У день",
+                "td5Service": "<i class='fas fa-cog'></i> Абонемент на правки",
+                "td5Desc": "5 правок на місяць + пріоритетна підтримка.",
+                "td5Price": "<span class='price-uah'>800 грн</span><span class='price-usd'>20$</span>",
+                "td5Term": "Місяць",
+                "servicesNote": "* Ціни індивідуальні, без ПДВ. Для складних проектів — розрахуємо разом. Повернемося до базового сайту за <a href='/'>2000 грн</a>.",
+                "faqTitle": "Часто задавані питання",
+                "faq1q": "Як обрати послугу?",
+                "faq1a": "Розкажіть про проект — підберемо оптимальний набір. Ніяких зобов'язань, тільки те, що потрібно.",
+                "faq2q": "Чи можна комбінувати?",
+                "faq2a": "Так! Наприклад, +сторінка +SEO зі знижкою. Обговоримо в чаті.",
+                "faq3q": "Що з оплатою допів?",
+                "faq3a": "50% передоплата, решта після. Будь-яким способом, включаючи крипту через біржу.",
+                "contactTitle": "Готові розширити сайт?",
+                "contactDesc": "Напишіть — розрахуємо вартість за 10 хвилин.",
+                "telegramBtn": "Написати в Telegram",
+                "messagePlaceholder": "Які послуги цікавлять?...",
+                "formBtn": "Відправити",
+                "footerText": "© 2025 PageCraft. Доступні сайти для вашого успіху."
+            },
+            "ru": {
+                "heroTitle": "Дополнительные услуги — расширьте свой сайт",
+                "heroDesc": "Если базовый лендинг — это старт, то эти опции добавят функционала без переплат. Выберите, что нужно, и обсудим цену индивидуально. Всё на коде, с гарантией качества.",
+                "ctaBtn": "Обсудить проект",
+                "servicesTitle": "Наши дополнительные услуги",
+                "thService": "Услуга",
+                "thIncludes": "Что входит",
+                "thPrice": "Цена",
+                "thTerm": "Срок",
+                "td1Service": "<i class='fas fa-plus'></i> Дополнительная страница",
+                "td1Desc": "Новая страница (о нас, контакты, блог) с дизайном и SEO.",
+                "td1Price": "<span class='price-uah'>500 грн</span><span class='price-usd'>15$</span>",
+                "td1Term": "1 день",
+                "td2Service": "<i class='fas fa-globe'></i> Многоязычность",
+                "td2Desc": "Добавим 1-2 языка (EN, ES и т.д.) с переключателем.",
+                "td2Price": "<span class='price-uah'>1000 грн</span><span class='price-usd'>25$</span>",
+                "td2Term": "1-2 дня",
+                "td3Service": "<i class='fas fa-chart-line'></i> SEO-аудит",
+                "td3Desc": "Проверка и улучшение (ключи, скорость, мета).",
+                "td3Price": "<span class='price-uah'>300 грн</span><span class='price-usd'>8$</span>",
+                "td3Term": "1 день",
+                "td4Service": "<i class='fas fa-edit'></i> Разовые правки",
+                "td4Desc": "Мелкие изменения (текст, фото, блок) после запуска.",
+                "td4Price": "<span class='price-uah'>200 грн</span><span class='price-usd'>5$</span>",
+                "td4Term": "В день",
+                "td5Service": "<i class='fas fa-cog'></i> Абонемент на правки",
+                "td5Desc": "5 правок в месяц + приоритетная поддержка.",
+                "td5Price": "<span class='price-uah'>800 грн</span><span class='price-usd'>20$</span>",
+                "td5Term": "Месяц",
+                "servicesNote": "* Цены индивидуальны, без НДС. Для сложных проектов — рассчитаем вместе. Вернёмся к базовому сайту за <a href='/'>50$</a>.",
+                "faqTitle": "Часто задаваемые вопросы",
+                "faq1q": "Как выбрать услугу?",
+                "faq1a": "Расскажите о проекте — подберём оптимальный набор. Нет обязательств, только то, что нужно.",
+                "faq2q": "Можно ли комбинировать?",
+                "faq2a": "Да! Например, +страница +SEO за скидку. Обсудим в чате.",
+                "faq3q": "Что с оплатой допов?",
+                "faq3a": "50% предоплата, остаток после. Любым способом, включая крипту через биржу.",
+                "contactTitle": "Готовы расширить сайт?",
+                "contactDesc": "Напишите — рассчитаем стоимость за 10 минут.",
+                "telegramBtn": "Написать в Telegram",
+                "messagePlaceholder": "Какие услуги интересуют?...",
+                "formBtn": "Отправить",
+                "footerText": "© 2025 PageCraft. Доступные сайты для вашего успеха."
+            },
+            "en": {
+                "heroTitle": "Additional Services — Expand Your Site",
+                "heroDesc": "If the basic landing is your start, these options add functionality without overpaying. Choose what you need and we'll discuss pricing individually. All on code, with quality guarantee.",
+                "ctaBtn": "Discuss Project",
+                "servicesTitle": "Our Additional Services",
+                "thService": "Service",
+                "thIncludes": "What's Included",
+                "thPrice": "Price",
+                "thTerm": "Timeline",
+                "td1Service": "<i class='fas fa-plus'></i> Extra Page",
+                "td1Desc": "New page (about us, contacts, blog) with design and SEO.",
+                "td1Price": "<span class='price-uah'>500 грн</span><span class='price-usd'>15$</span>",
+                "td1Term": "1 day",
+                "td2Service": "<i class='fas fa-globe'></i> Multilingual",
+                "td2Desc": "Add 1-2 languages (EN, ES etc.) with switcher.",
+                "td2Price": "<span class='price-uah'>1000 грн</span><span class='price-usd'>25$</span>",
+                "td2Term": "1-2 days",
+                "td3Service": "<i class='fas fa-chart-line'></i> SEO Audit",
+                "td3Desc": "Check and improve (keywords, speed, meta).",
+                "td3Price": "<span class='price-uah'>300 грн</span><span class='price-usd'>8$</span>",
+                "td3Term": "1 day",
+                "td4Service": "<i class='fas fa-edit'></i> One-Off Edits",
+                "td4Desc": "Small changes (text, photos, block) after launch.",
+                "td4Price": "<span class='price-uah'>200 грн</span><span class='price-usd'>5$</span>",
+                "td4Term": "Same day",
+                "td5Service": "<i class='fas fa-cog'></i> Edits Subscription",
+                "td5Desc": "5 edits per month + priority support.",
+                "td5Price": "<span class='price-uah'>800 грн</span><span class='price-usd'>20$</span>",
+                "td5Term": "Month",
+                "servicesNote": "* Prices are individual, no VAT. For complex projects — we'll calculate together. Back to basic site for <a href='/'>$50</a>.",
+                "faqTitle": "FAQ",
+                "faq1q": "How to choose a service?",
+                "faq1a": "Tell us about your project — we'll pick the optimal set. No commitments, only what you need.",
+                "faq2q": "Can I combine?",
+                "faq2a": "Yes! For example, +page +SEO with discount. Let's discuss in chat.",
+                "faq3q": "What about payment for add-ons?",
+                "faq3a": "50% prepay, rest after. Any method, including crypto via exchange.",
+                "contactTitle": "Ready to Expand Your Site?",
+                "contactDesc": "Write — we'll calculate cost in 10 minutes.",
+                "telegramBtn": "Message in Telegram",
+                "messagePlaceholder": "What services are you interested in?...",
+                "formBtn": "Send",
+                "footerText": "© 2025 PageCraft. Affordable sites for your success."
+            },
+            "es": {
+                "heroTitle": "Servicios Adicionales — Expande Tu Sitio",
+                "heroDesc": "Si el landing básico es tu inicio, estas opciones añaden funcionalidad sin sobrepagar. Elige lo que necesitas y discutiremos el precio individualmente. Todo en código, con garantía de calidad.",
+                "ctaBtn": "Discutir Proyecto",
+                "servicesTitle": "Nuestros Servicios Adicionales",
+                "thService": "Servicio",
+                "thIncludes": "Qué Incluye",
+                "thPrice": "Precio",
+                "thTerm": "Plazo",
+                "td1Service": "<i class='fas fa-plus'></i> Página Extra",
+                "td1Desc": "Nueva página (sobre nosotros, contactos, blog) con diseño y SEO.",
+                "td1Price": "<span class='price-uah'>500 грн</span><span class='price-usd'>15$</span>",
+                "td1Term": "1 día",
+                "td2Service": "<i class='fas fa-globe'></i> Multilingüe",
+                "td2Desc": "Añadir 1-2 idiomas (EN, ES etc.) con selector.",
+                "td2Price": "<span class='price-uah'>1000 грн</span><span class='price-usd'>25$</span>",
+                "td2Term": "1-2 días",
+                "td3Service": "<i class='fas fa-chart-line'></i> Auditoría SEO",
+                "td3Desc": "Revisión y mejora (palabras clave, velocidad, meta).",
+                "td3Price": "<span class='price-uah'>300 грн</span><span class='price-usd'>8$</span>",
+                "td3Term": "1 día",
+                "td4Service": "<i class='fas fa-edit'></i> Ediciones Únicas",
+                "td4Desc": "Cambios pequeños (texto, fotos, bloque) después del lanzamiento.",
+                "td4Price": "<span class='price-uah'>200 грн</span><span class='price-usd'>5$</span>",
+                "td4Term": "Mismo día",
+                "td5Service": "<i class='fas fa-cog'></i> Suscripción de Ediciones",
+                "td5Desc": "5 ediciones por mes + soporte prioritario.",
+                "td5Price": "<span class='price-uah'>800 грн</span><span class='price-usd'>20$</span>",
+                "td5Term": "Mes",
+                "servicesNote": "* Precios individuales, sin IVA. Para proyectos complejos — calcularemos juntos. Volver al sitio básico por <a href='/'>$50</a>.",
+                "faqTitle": "FAQ",
+                "faq1q": "¿Cómo elegir un servicio?",
+                "faq1a": "Cuéntanos sobre tu proyecto — elegiremos el set óptimo. Sin compromisos, solo lo necesario.",
+                "faq2q": "¿Puedo combinar?",
+                "faq2a": "¡Sí! Por ejemplo, +página +SEO con descuento. Discutamos en chat.",
+                "faq3q": "¿Qué con el pago de add-ons?",
+                "faq3a": "50% prepago, resto después. Cualquier método, incluyendo cripto vía exchange.",
+                "contactTitle": "¿Listo para Expandir Tu Sitio?",
+                "contactDesc": "Escribe — calcularemos costo en 10 minutos.",
+                "telegramBtn": "Escribir en Telegram",
+                "messagePlaceholder": "¿Qué servicios te interesan?...",
+                "formBtn": "Enviar",
+                "footerText": "© 2025 PageCraft. Sitios asequibles para tu éxito."
+            }
+        };
+
+        function changeLang(lang) {
+            try {
+                console.log("Switching to lang:", lang);
+                document.body.setAttribute('data-lang', lang);
+                const t = translations[lang];
+                if (!t) {
+                    console.error("No translations for lang:", lang);
+                    return;
+                }
+                document.getElementById('hero-title').textContent = t.heroTitle;
+                document.getElementById('hero-desc').textContent = t.heroDesc;
+                document.getElementById('cta-btn').innerHTML = t.ctaBtn;
+                document.getElementById('services-title').textContent = t.servicesTitle;
+                document.getElementById('th-service').textContent = t.thService;
+                document.getElementById('th-includes').textContent = t.thIncludes;
+                document.getElementById('th-price').textContent = t.thPrice;
+                document.getElementById('th-term').textContent = t.thTerm;
+                document.getElementById('td1-service').innerHTML = t.td1Service;
+                document.getElementById('td1-desc').textContent = t.td1Desc;
+                document.getElementById('td1-price').innerHTML = t.td1Price;
+                document.getElementById('td1-term').textContent = t.td1Term;
+                document.getElementById('td2-service').innerHTML = t.td2Service;
+                document.getElementById('td2-desc').textContent = t.td2Desc;
+                document.getElementById('td2-price').innerHTML = t.td2Price;
+                document.getElementById('td2-term').textContent = t.td2Term;
+                document.getElementById('td3-service').innerHTML = t.td3Service;
+                document.getElementById('td3-desc').textContent = t.td3Desc;
+                document.getElementById('td3-price').innerHTML = t.td3Price;
+                document.getElementById('td3-term').textContent = t.td3Term;
+                document.getElementById('td4-service').innerHTML = t.td4Service;
+                document.getElementById('td4-desc').textContent = t.td4Desc;
+                document.getElementById('td4-price').innerHTML = t.td4Price;
+                document.getElementById('td4-term').textContent = t.td4Term;
+                document.getElementById('td5-service').innerHTML = t.td5Service;
+                document.getElementById('td5-desc').textContent = t.td5Desc;
+                document.getElementById('td5-price').innerHTML = t.td5Price;
+                document.getElementById('td5-term').textContent = t.td5Term;
+                document.getElementById('services-note').innerHTML = t.servicesNote;
+                document.getElementById('faq-title').textContent = t.faqTitle;
+                document.getElementById('faq1-q').textContent = t.faq1q;
+                document.getElementById('faq1-a').textContent = t.faq1a;
+                document.getElementById('faq2-q').textContent = t.faq2q;
+                document.getElementById('faq2-a').textContent = t.faq2a;
+                document.getElementById('faq3-q').textContent = t.faq3q;
+                document.getElementById('faq3-a').textContent = t.faq3a;
+                document.getElementById('contact-title').textContent = t.contactTitle;
+                document.getElementById('contact-desc').textContent = t.contactDesc;
+                document.getElementById('telegram-btn').textContent = t.telegramBtn;
+                document.querySelector('textarea[name="message"]').placeholder = t.messagePlaceholder;
+                document.getElementById('form-btn').textContent = t.formBtn;
+                document.getElementById('footer-text').textContent = t.footerText;
+
+                document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelector(`[data-lang="${lang}"]`).classList.add('active');
+                console.log("Language switched successfully to:", lang);
+            } catch (error) {
+                console.error('Language switch error:', error);
+            }
+        }
+
+        // Инициализация
+        changeLang(detectedLang);
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                changeLang(btn.dataset.lang);
+            });
+        });
+
+        // FAQ toggle
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            answer.classList.toggle('active');
+            const icon = element.querySelector('i');
+            if (icon) {
+                icon.style.transform = answer.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+            }
+        }
+
+        // Smooth scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const cta = document.getElementById('cta-btn');
+            if (cta) {
+                cta.addEventListener('click', e => {
+                    e.preventDefault();
+                    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
