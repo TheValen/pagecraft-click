@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PageCraft — Качественные одностраничные сайты под ключ за 2000 грн</title>
-    <meta name="description" content="Создам полноценный одностраничный сайт на коде с бесплатным хостингом, SEO и мобильной оптимизацией. Цена 2000 грн — идеально для бизнеса без шаблонных конструкторов.">
+    <meta name="description" content="Создадим полноценный одностраничный сайт на коде с бесплатным хостингом, SEO и мобильной оптимизацией. Цена 2000 грн — идеально для бизнеса без шаблонных конструкторов.">
     <meta name="keywords" content="создание сайтов, одностраничный сайт, лендинг под ключ, доступный веб-дизайн, SEO оптимизация, мобильная адаптация, бесплатный хостинг">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://pagecraft.com/">
     <!-- Open Graph -->
     <meta property="og:title" content="PageCraft — Качественные одностраничные сайты под ключ за 2000 грн">
-    <meta property="og:description" content="Создам полноценный одностраничный сайт на коде с бесплатным хостингом, SEO и мобильной оптимизацией. Цена 2000 грн — идеально для бизнеса.">
+    <meta property="og:description" content="Создадим полноценный одностраничный сайт на коде с бесплатным хостингом, SEO и мобильной оптимизацией. Цена 2000 грн — идеально для бизнеса.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://pagecraft.com/">
     <meta property="og:image" content="https://pagecraft.com/og-image.jpg">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="PageCraft — Качественные одностраничные сайты под ключ за 2000 грн">
-    <meta name="twitter:description" content="Создам полноценный одностраничный сайт на коде с бесплатным хостингом, SEO и мобильной оптимизацией. Цена 2000 грн — идеально для бизнеса.">
+    <meta name="twitter:description" content="Создадим полноценный одностраничный сайт на коде с бесплатным хостингом, SEO и мобильной оптимизацией. Цена 2000 грн — идеально для бизнеса.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -70,13 +70,11 @@
         .hidden { display: none; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .lang-switch { flex-wrap: wrap; } }
-        /* Цены по языку */
-        .price-uah { display: block; }
-        .price-usd { display: none; }
-        body[data-lang="uk"], body[data-lang="ru"] .price-usd { display: none; }
-        body[data-lang="uk"], body[data-lang="ru"] .price-uah { display: block; }
-        body[data-lang="en"], body[data-lang="es"] .price-uah { display: none; }
-        body[data-lang="en"], body[data-lang="es"] .price-usd { display: block; }
+        /* Цены по языку: грн только для UA, $ для RU/EN/ES */
+        .price-uah { display: none; }
+        .price-usd { display: block; }
+        body[data-lang="uk"] .price-uah { display: block; }
+        body[data-lang="uk"] .price-usd { display: none; }
     </style>
 </head>
 <body data-lang="ru">
@@ -95,7 +93,7 @@
     <section class="hero">
         <div class="hero-content container">
             <h1 id="hero-title">Качественные одностраничные сайты под ключ — доступно и просто</h1>
-            <p id="hero-desc">Создам для вас современный полноценный лендинг на коде (не конструктор). Работает на всех устройствах, с минимальным SEO для поиска и бесплатным хостингом — экономьте до 200 грн в месяц на платных услугах. Преимущества: быстрая загрузка, отличная индексация в поисковиках, полный контроль без ограничений шаблонов. Идеально для старта бизнеса!</p>
+            <p id="hero-desc">Создадим для вас современный полноценный лендинг на коде (не конструктор). Работает на всех устройствах, с минимальным SEO для поиска и бесплатным хостингом — экономьте до 5$ в месяц на платных услугах. Преимущества: быстрая загрузка, отличная индексация в поисковиках, полный контроль без ограничений шаблонов. Идеально для старта бизнеса!</p>
             <a href="#contact" class="cta" id="cta-btn">Заказать за <span class="price price-uah">2000 грн</span><span class="price price-usd">50$</span></a>
         </div>
     </section>
@@ -117,7 +115,7 @@
                 <div class="feature">
                     <i class="fas fa-server"></i>
                     <h3 id="feat-title3">Бесплатный хостинг</h3>
-                    <p id="feat-desc3">Никаких ежемесячных платежей — платные хостинги стоят от 200 грн в месяц, а у нас всё бесплатно на старте. Хороший хостинг гарантирует скорость и надёжность.</p>
+                    <p id="feat-desc3">Никаких ежемесячных платежей — платные хостинги стоят от 5$ в месяц, а у нас всё бесплатно на старте. Хороший хостинг гарантирует скорость и надёжность.</p>
                 </div>
                 <div class="feature">
                     <i class="fas fa-key"></i>
@@ -192,7 +190,7 @@
             <h2 id="contact-title">Свяжитесь со мной</h2>
             <p id="contact-desc">Расскажите о вашем проекте — отвечу в течение часа.</p>
             <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem;">
-                <a href="https://t.me/craftpage" class="cta" style="background: #0088cc; color: white; text-align: center; padding: 1rem;">Написать в Telegram</a>
+                <a href="https://t.me/craftpage" class="cta" style="background: #0088cc; color: white; text-align: center; padding: 1rem;" id="telegram-btn">Написать в Telegram</a>
             </div>
             <form action="https://submit-form.com/NRH8Ke2kg" method="POST">
                 <input type="text" name="name" placeholder="Ваше имя" required>
@@ -218,7 +216,7 @@
         const translations = {
             "uk": {
                 "heroTitle": "Якісні односторінкові сайти під ключ — доступно і просто",
-                "heroDesc": "Створю для вас сучасний повноцінний лендінг на коді (не конструктор). Працює на всіх пристроях, з мінімальним SEO для пошуку та безкоштовним хостингом — економте до 200 грн на місяць на платних послугах. Переваги: швидке завантаження, відмінна індексація в пошуковиків, повний контроль без обмежень шаблонів. Ідеально для старту бізнесу!",
+                "heroDesc": "Створимо для вас сучасний повноцінний лендінг на коді (не конструктор). Працює на всіх пристроях, з мінімальним SEO для пошуку та безкоштовним хостингом — економте до 200 грн на місяць на платних послугах. Переваги: швидке завантаження, відмінна індексація в пошуковиків, повний контроль без обмежень шаблонів. Ідеально для старту бізнесу!",
                 "ctaBtn": "Замовити за 2000 грн",
                 "featuresTitle": "Що входить в послугу",
                 "featTitle1": "Оптимізація під мобільні",
@@ -245,20 +243,21 @@
                 "faq3a": "50% передоплата, 50% після. Будь-яким зручним способом, в тому числі криптовалютою (через біржу).",
                 "contactTitle": "Зв'яжіться зі мною",
                 "contactDesc": "Розкажіть про ваш проект — відповім протягом години.",
+                "telegramBtn": "Написати в Telegram",
                 "formBtn": "Відправити",
                 "footerText": "© 2025 PageCraft. Доступні сайти для вашого успіху."
             },
             "ru": {
                 "heroTitle": "Качественные одностраничные сайты под ключ — доступно и просто",
-                "heroDesc": "Создам для вас современный полноценный лендинг на коде (не конструктор). Работает на всех устройствах, с минимальным SEO для поиска и бесплатным хостингом — экономьте до 200 грн в месяц на платных услугах. Преимущества: быстрая загрузка, отличная индексация в поисковиках, полный контроль без ограничений шаблонов. Идеально для старта бизнеса!",
-                "ctaBtn": "Заказать за 2000 грн",
+                "heroDesc": "Создадим для вас современный полноценный лендинг на коде (не конструктор). Работает на всех устройствах, с минимальным SEO для поиска и бесплатным хостингом — экономьте до 5$ в месяц на платных услугах. Преимущества: быстрая загрузка, отличная индексация в поисковиках, полный контроль без ограничений шаблонов. Идеально для старта бизнеса!",
+                "ctaBtn": "Заказать за 50$",
                 "featuresTitle": "Что входит в услугу",
                 "featTitle1": "Оптимизация под мобильные",
                 "featDesc1": "Сайт выглядит идеально на телефонах и планшетах — ваши клиенты не уйдут.",
                 "featTitle2": "Минимальное SEO",
                 "featDesc2": "Настрою ключевые слова и мета-теги, чтобы вас находили в Google. Полноценный код обеспечивает лучшую индексацию, чем шаблонные конструкторы.",
                 "featTitle3": "Бесплатный хостинг",
-                "featDesc3": "Никаких ежемесячных платежей — платные хостинги стоят от 200 грн в месяц, а у нас всё бесплатно на старте. Хороший хостинг гарантирует скорость и надёжность.",
+                "featDesc3": "Никаких ежемесячных платежей — платные хостинги стоят от 5$ в месяц, а у нас всё бесплатно на старте. Хороший хостинг гарантирует скорость и надёжность.",
                 "featTitle4": "Под ключ на коде",
                 "featDesc4": "От идеи до запуска: текст, фото, дизайн — готовый полноценный сайт за 1-2 дня, без ограничений конструкторов.",
                 "examplesTitle": "Примеры работ",
@@ -277,12 +276,13 @@
                 "faq3a": "50% предоплата, 50% после. Любым удобным способом, в том числе криптовалютой (через биржу).",
                 "contactTitle": "Свяжитесь со мной",
                 "contactDesc": "Расскажите о вашем проекте — отвечу в течение часа.",
+                "telegramBtn": "Написать в Telegram",
                 "formBtn": "Отправить",
                 "footerText": "© 2025 PageCraft. Доступные сайты для вашего успеха."
             },
             "en": {
                 "heroTitle": "Quality One-Page Websites Under Key — Affordable and Simple",
-                "heroDesc": "I'll create a modern full-fledged landing on code (not a builder). Works on all devices, with basic SEO for search and free hosting — save up to $5/month on paid services. Advantages: fast loading, excellent search indexing, full control without template limits. Perfect for business startup!",
+                "heroDesc": "We'll create a modern full-fledged landing on code (not a builder). Works on all devices, with basic SEO for search and free hosting — save up to $5/month on paid services. Advantages: fast loading, excellent search indexing, full control without template limits. Perfect for business startup!",
                 "ctaBtn": "Order for $50",
                 "featuresTitle": "What's Included",
                 "featTitle1": "Mobile Optimization",
@@ -309,12 +309,13 @@
                 "faq3a": "50% prepay, 50% after. Any convenient method, including cryptocurrency (via exchange).",
                 "contactTitle": "Get in Touch",
                 "contactDesc": "Tell me about your project — I'll reply within an hour.",
+                "telegramBtn": "Message in Telegram",
                 "formBtn": "Send",
                 "footerText": "© 2025 PageCraft. Affordable sites for your success."
             },
             "es": {
                 "heroTitle": "Sitios Web de Una Página de Calidad Bajo Llave — Asequibles y Simples",
-                "heroDesc": "Crearé un landing moderno y completo en código (no constructor). Funciona en todos los dispositivos, con SEO básico para búsquedas y hosting gratuito — ahorra hasta $5/mes en servicios pagos. Ventajas: carga rápida, excelente indexación en buscadores, control total sin límites de plantillas. ¡Perfecto para empezar un negocio!",
+                "heroDesc": "Crearemos un landing moderno y completo en código (no constructor). Funciona en todos los dispositivos, con SEO básico para búsquedas y hosting gratuito — ahorra hasta $5/mes en servicios pagos. Ventajas: carga rápida, excelente indexación en buscadores, control total sin límites de plantillas. ¡Perfecto para empezar un negocio!",
                 "ctaBtn": "Pedir por $50",
                 "featuresTitle": "Qué Incluye",
                 "featTitle1": "Optimización Móvil",
@@ -341,6 +342,7 @@
                 "faq3a": "50% prepago, 50% después. Cualquier método conveniente, incluyendo criptomoneda (vía exchange).",
                 "contactTitle": "Ponte en Contacto",
                 "contactDesc": "Cuéntame sobre tu proyecto — responderé en una hora.",
+                "telegramBtn": "Escribir en Telegram",
                 "formBtn": "Enviar",
                 "footerText": "© 2025 PageCraft. Sitios asequibles para tu éxito."
             }
@@ -383,6 +385,7 @@
                 document.getElementById('faq3-a').textContent = t.faq3a;
                 document.getElementById('contact-title').textContent = t.contactTitle;
                 document.getElementById('contact-desc').textContent = t.contactDesc;
+                document.getElementById('telegram-btn').textContent = t.telegramBtn;
                 document.getElementById('form-btn').textContent = t.formBtn;
                 document.getElementById('footer-text').textContent = t.footerText;
 
